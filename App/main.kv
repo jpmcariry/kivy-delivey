@@ -1,0 +1,211 @@
+#: import FadeTransition kivy.uix.screenmanager.FadeTransition
+<Programa@Screen>:
+    name: "tela_login"
+    FloatLayout:
+        FloatLayout:
+            orientation: "vertical"
+            canvas:
+                Color:
+                    rgb: 1, 0.2 , 0.2
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            Image:
+                source: 'src/img/oie.png'
+                size_hint: .2,.1
+                pos_hint: {"x": 0.0,"y":0.87}
+        FloatLayout:
+            orientation: "vertical"
+            size_hint: 1, 0.85
+            pos_hint:{"":0.0,"y":0.0}
+            canvas:
+                Color:
+                    rgb: 1, 1 , 1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            FloatLayout:
+                orientation: "vertical"
+                Image:
+                    source: 'src/txt/login.png'
+                    size_hint: 0.2, 0.07
+                    pos_hint: {"x": 0.25,"y": .58}
+                TextInput:
+                    id: login
+                    text: "digite o login"
+                    size_hint: 0.25, 0.1
+                    pos_hint: {"x": 0.4,"y": .58}
+                    multiline: False
+                Image:
+                    source: 'src/txt/senha.png'
+                    size_hint: 0.2, 0.07
+                    pos_hint: {"x": 0.241,"y": .45}
+                TextInput:
+                    id: senha
+                    text: "digite a senha"
+                    size_hint: 0.25, 0.1
+                    pos_hint: {"x": 0.4,"y": .45}
+                    password: True
+                    multiline: False
+                SmoothButton:
+                    back_color: (1,0.3,0.3,1)
+                    text: "submit"
+                    size_hint: 0.2, 0.1
+                    pos_hint: {"x": 0.4, "y":0.3}
+                    border_radius:[20]
+                    on_press:  root.logar()
+<Crud@Screen>:
+    name: "crud"
+    FloatLayout:
+        FloatLayout:
+            orientation: "vertical"
+            size_hint: 1, 0.15
+            pos_hint:{"":0.0,"y":0.85}
+            canvas:
+                Color:
+                    rgb: 1, 0.2 , 0.2
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            Image:
+                source: 'src/img/oie.png'
+                size_hint: .2,.67
+                pos_hint: {"x": 0.0,"y":0.13}
+            Button:
+                id: myButton
+                size_hint: .2,1
+                pos_hint: {"x": 0.8,"y":0.0}
+                background_color: (0.5,0.5,0.5, 0)
+                background_normal: ''
+                on_press: app.root.current="tela_login"
+            Image:
+                source: "src//img//sair.png"
+                size_hint: .1,0.55
+                pos_hint: {"x": 0.85,"y":0.225}
+        FloatLayout:
+            orientation: "vertical"
+            size_hint: 1, 0.85
+            pos_hint:{"":0.0,"y":0.0}
+            canvas:
+                Color:
+                    rgb: 1, 1 , 1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            FloatLayout:
+                orientation: "vertical"
+                Image
+                    source: "src//txt//prato.png"
+                    size_hint: 0.2, 0.07
+                    pos_hint: {"x": 0.14,"y": .82}
+                TextInput:
+                    id: senha
+                    text: "digite o pedido!!"
+                    size_hint: 0.3, 0.1
+                    pos_hint: {"x": 0.3,"y": .8}
+                    multiline: False
+                Button:
+                    text: "+"
+                    size_hint: 0.12, 0.1
+                    pos_hint: {"x": 0.6, "y":0.8}
+                    on_press:  root.crud_print()
+                Button:
+                    text: "pesquisar"
+                    size_hint: 0.5, 0.1
+                    pos_hint: {"x": 0.25, "y":0.1}
+                    on_press:  app.root.current="pesquisa"
+<Pesquisa@Screen>:
+    name: "pesquisa"
+    FloatLayout:
+        FloatLayout:
+            orientation: "vertical"
+            size_hint: 1, 0.15
+            pos_hint:{"":0.0,"y":0.85}
+            canvas:
+                Color:
+                    rgb: 1, 0.2 , 0.2
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            Image:
+                source: 'src/img/oie.png'
+                size_hint: .2,.67
+                pos_hint: {"x": 0.0,"y":0.13}
+            Button:
+                id: myButton
+                size_hint: .2,1
+                pos_hint: {"x": 0.8,"y":0.0}
+                background_color: (0.5,0.5,0.5, 0)
+                background_normal: ''
+                on_press: app.root.current="tela_login"
+            Image:
+                source: "src//img//sair.png"
+                size_hint: .1,0.55
+                pos_hint: {"x": 0.85,"y":0.225}
+        FloatLayout:
+            orientation: "vertical"
+            size_hint: 1, 0.85
+            pos_hint:{"":0.0,"y":0.0}
+            canvas:
+                Color:
+                    rgb: 1, 1 , 1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            FloatLayout:
+                orientation: "vertical"
+                Image
+                    source: "src//txt//prato.png"
+                    size_hint: 0.2, 0.07
+                    pos_hint: {"x": 0.14,"y": .82}
+                TextInput:
+                    id: senha
+                    text: "digite o prato"
+                    size_hint: 0.3, 0.1
+                    pos_hint: {"x": 0.3,"y": .8}
+                    multiline: False
+                Button:
+                    text: "ir"
+                    size_hint: 0.12, 0.1
+                    pos_hint: {"x": 0.6, "y":0.8}
+                    on_press:  root.pesquisar()
+                Button:
+                    text: "ir para Crud"
+                    size_hint: 0.5, 0.1
+                    pos_hint: {"x": 0.25, "y":0.1}
+                    on_press:  app.root.current="crud"
+
+
+<SmoothButton@Button>:
+    background_color: (0,0,0, 0)
+    background_normal: ''
+    back_color: (1,0.3,0.3,1)
+    border_radius:[20]
+    canvas.before:
+        Color:
+            rgba: self.back_color
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: self.border_radius
+
+#<StrokeButton@Button>:
+    #background_color: (0,0,0, 0)
+    #background_normal: ''
+    #back_color: (1,0.3,0.3,1)
+    #border_radius: [20]
+    #color: self.back_color
+    #bold: true
+    #canvas.before:
+        #Color:
+            #rgba: self.back_color
+        #Line:
+            #RoundedRectangle: self.pos[0],self.pos[1], self.size[0], self.size[0], self.border_radius
+            #width: 1.2"""
+
+
+WindowManager:
+    transition: FadeTransition()
+    Programa:
+    Crud:
+    Pesquisa:
