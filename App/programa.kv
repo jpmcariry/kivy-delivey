@@ -1,6 +1,68 @@
-BoxLayout:
-    orientation: "vertical"
+#: import FadeTransition kivy.uix.screenmanager.FadeTransition
+<Tela1@screen>
+    name: "Tela1"
+    FloatLayout:
+        canvas:
+            Color:
+                rgb: 1, 0.957 , 0.2
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        Image:
+            source: 'src/img/lambreta.png'
+            size_hint: .4,.2
+            pos_hint: {"x": 0.3,"y":0.7}
+        FloatLayout:
+            orientation: "vertical"
+
+            Label:
+                text: "Email:"
+                size_hint: 0.1,0.1
+                pos_hint: {"x":0.1,"y":0.60}
+                font_size: 40
+                font_name: "src/img/segoe.ttf"
+
+            TextInput:
+                id: login
+                text: "digite seu login"
+                size_hint: 0.4,0.1
+                pos_hint: {"x":0.3,"y":0.60}
+                multiline: False
+
+            Label:
+                text: "Senha:"
+                size_hint: 0.1,0.1
+                pos_hint: {"x":0.1,"y":0.45}
+                font_size: 40
+                font_name: "src/img/segoe.ttf"
+
+            TextInput:
+                id: senha
+                text: "digite sua senha"
+                size_hint: 0.4,0.1
+                pos_hint: {"x":0.3,"y":0.45}
+                multiline: False
+                password: True
+
+            Button:
+                id: btn
+                text: ""
+                size_hint: 0.5,0.2
+                pos_hint: {"x":0.25,"y":0.2}
+                background_normal: "src/img/button.png"
+                background_down: "src/img/button_atv.png"
+                on_press: root.verificar()
+
+
+
+<Tela2@Screen>
+    name: "Tela2"
     Button:
-        text: "sou um botao"
-        on_press: print("fui pressionado")
-        
+        text: "dentro tela2"
+
+
+
+Window:
+    transition: FadeTransition()
+    Tela1:
+    Tela2:
